@@ -32,7 +32,7 @@ if prompt := st.chat_input(placeholder="What is machine learning?"):
     st.chat_message("user").write(prompt)
 
     llm = ChatGroq(groq_api_key=api_key, model_name="Llama3-8b-8192", streaming=True)
-    tools = [search, arxiv, wiki]
+    tools = [arxiv, wiki]
 
     search_agent = initialize_agent(
         tools, llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, handle_parsing_errors=True
